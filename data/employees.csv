@@ -1,0 +1,8 @@
+name,age,city,salary
+John Doe,25,New York,50000
+Jane Smith,,Los Angeles,60000
+Bob Johnson,30,,45000
+Alice Brown,invalid,Chicago,70000
+Mike Wilson,28,"  San Francisco  ",abc
+,35,Seattle,80000
+Sarah Davis,29,  Boston,  65000
