@@ -53,8 +53,8 @@ function extractAndTransform () {
                 results.push(newData)
         
             })
-            .on('end', () => resolve(results)) // Resolve with the processed data
-            .on('error', (err) => reject(err)) // Reject the promise in case of errors
+            .on('end', () => resolve(results)) // Resolve with the processed data when theres no more streams to process
+            .on('error', (err) => reject(err)) // Reject the promise in case of errors during streams
     })
 }
 
