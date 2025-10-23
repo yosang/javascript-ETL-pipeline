@@ -37,9 +37,9 @@ function extractAndTransform () {
             .pipe(csv()) // Each row stream of our CSV is piped to csv-parser and converted to a POJO
             .on('data', data => {
                 
-                const newData = {}; // Temporary object that holds each row for each record in the imported CSV
-        
                 // 2. Transform - Data streams are transformed and immediately stored in memory
+                const newData = {}; // Temporary object that holds each processed row
+        
                 for(let key in data) {
                     let value = data[key];
         
@@ -49,6 +49,7 @@ function extractAndTransform () {
                     
                     newData[key] = value;
                 }
+                
                 results.push(newData)
         
             })
