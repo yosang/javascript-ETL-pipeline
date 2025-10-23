@@ -10,8 +10,8 @@ const outputPath = 'output/transformed.csv'
 const csv = require('csv-parser');
 
 // Converts a POJO to CSV format: https://www.npmjs.com/package/csv-writer
-// We need to define the schema that includes the path to where the file is going to be exported
-// And the headers define the column names of the CSV file.
+// We need to define the schema that includes the path to where the file is going to be exported as well as
+    // the headers that define the column names of the exported CSV file.
 const { createObjectCsvWriter } = require('csv-writer');
 
 const exportCSV = createObjectCsvWriter({
@@ -32,9 +32,8 @@ function extractAndTransform () {
 
         const results = []; // We are going to stored transformed data in here and resolve the promise with it
         
+        // 1. Extract - Data is extracted and converted to a manageable format
         fs.createReadStream(inputPath) // This method reads the file in streams of data asynchronously
-        
-            // 1. Extract - Data is extracted and converted to a manageable format
             .pipe(csv()) // Each row stream of our CSV is piped to csv-parser and converted to a POJO
             .on('data', data => {
                 
